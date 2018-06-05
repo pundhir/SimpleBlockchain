@@ -19,7 +19,9 @@ class MainActivity : AppCompatActivity() {
         blockChain.addBlock(Block(5, "05June2018_5", Data("Block_5")))
         blockChain.addBlock(Block(6, "05June2018_6", Data("Block_6")))
 
+
         blockChain.chain.forEach { it.displayBlock() }
 
     }
+
 }

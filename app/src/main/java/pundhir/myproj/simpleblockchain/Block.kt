@@ -21,6 +21,11 @@ class Block (var index: Int, var timestamp: String, var data: Data, var previous
 
 
     fun displayBlock() {
-        println(this.index.toChar() + " - " + this.timestamp + " - " + this.data.toString() + " - " + this.hash)
+        println("********************************************")
+        println("Block = "+this.index.toString())
+        println("TimeStamp = "+this.timestamp)
+        println("Transaction Data = "+this.data.transaction)
+        println("Previous Hash = "+this.previousHash)
+        println("Bock Hash = "+this.hash)
     }
 }
