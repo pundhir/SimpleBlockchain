@@ -1,6 +1,6 @@
 package pundhir.myproj.simpleblockchain
 
-class BlockChain(){
+class BlockChain() {
 
     var chain: ArrayList<Block> = ArrayList()
 
@@ -11,7 +11,7 @@ class BlockChain(){
 
     private fun createGenesisBlock(): Block {
         println("inside createGenesisBlock method")
-        return Block(1, "05June2018_0", Data("Block_0"), "0")
+        return Block(0, "05June2018_0", Data("Block_0"), "0")
     }
 
 
@@ -21,4 +21,13 @@ class BlockChain(){
         this.chain.add(block)
     }
 
+    fun isChainValid(): Boolean {
+        for (i in 1..this.chain.size - 1) {
+            var currentBock = this.chain[i]
+            var previousBlock = this.chain[i - 1]
+            if (!currentBock.hash.equals(currentBock.calculateHash())
+                    || !currentBock.previousHash.equals(previousBlock.hash)) return false
+        }
+        return true
+    }
 }

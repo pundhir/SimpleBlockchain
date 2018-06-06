@@ -21,7 +21,15 @@ class MainActivity : AppCompatActivity() {
 
 
         blockChain.chain.forEach { it.displayBlock() }
+        println ("isBlockChain Valid = " + blockChain.isChainValid())
 
+
+        println("#######################################")
+
+        blockChain.chain[1].data = Data("Tempored data")
+        blockChain.chain[1].hash =  blockChain.chain[1].calculateHash()
+        blockChain.chain.forEach { it.displayBlock() }
+        println ("isBlockChain Valid = " + blockChain.isChainValid())
     }
 
 }
