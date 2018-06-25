@@ -3,6 +3,7 @@ package pundhir.myproj.simpleblockchain
 class BlockChain() {
 
     var chain: ArrayList<Block> = ArrayList()
+    var difficulty = 3
 
     init {
         println("adding genesis block")
@@ -17,7 +18,7 @@ class BlockChain() {
 
     fun addBlock(block: Block) {
         block.previousHash = this.chain.last().hash
-        block.hash = block.calculateHash()
+        block.mineBlock(difficulty)
         this.chain.add(block)
     }
 
